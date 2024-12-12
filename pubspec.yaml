@@ -15,7 +15,8 @@ dependencies:
   flutter_animate: ^4.2.0
   font_awesome_flutter: ^10.5.0
   visibility_detector: ^0.4.0+2
-  google_fonts: ^6.2.0
+  # google_fonts: ^6.2.0
+  google_fonts: ^5.1.0
 
 
 dev_dependencies:
