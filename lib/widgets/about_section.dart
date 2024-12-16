@@ -16,8 +16,8 @@ class AboutSection extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 80,
-              backgroundColor: Colors.blue.withOpacity(0.2),
-              child: const Icon(Icons.person, size: 80, color: Colors.blue),
+              backgroundColor: Colors.deepPurple.withOpacity(0.2),
+              child: const Icon(Icons.person, size: 80, color: Colors.purple),
             ).animate().scale().fadeIn(),
             const SizedBox(height: 24),
             DefaultTextStyle(

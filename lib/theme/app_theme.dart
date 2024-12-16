@@ -5,7 +5,7 @@ class AppTheme {
   static final lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.blue,
+      seedColor: Colors.deepPurple,
       brightness: Brightness.light,
     ),
     textTheme: GoogleFonts.poppinsTextTheme(),
@@ -13,7 +13,19 @@ class AppTheme {
   );
 
   static const primaryGradient = LinearGradient(
-    colors: [Color(0xFF6448FE), Color(0xFF5FC6FF)],
+    colors: [
+      Color.fromARGB(255, 190, 72, 254),
+      Color.fromARGB(255, 255, 95, 242)
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  static const secondaryGradient = LinearGradient(
+    colors: [
+      Color(0xFF6448FE),
+      Color(0xFF5FC6FF),
+    ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );

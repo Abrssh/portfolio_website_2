@@ -10,19 +10,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Stack(
         children: [
-          AnimatedBackground(),
+          const AnimatedBackground(),
           Scrollbar(
             child: SingleChildScrollView(
               primary: true,
               child: Column(
                 children: [
-                  AboutSection(),
-                  ExperienceSection(),
+                  const AboutSection(),
+                  const ExperienceSection(),
                   PortfolioSection(),
-                  ContactSection(),
+                  const ContactSection(),
                 ],
               ),
             ),

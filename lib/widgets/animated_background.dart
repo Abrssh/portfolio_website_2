@@ -14,7 +14,12 @@ class AnimatedBackground extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xFFF8F9FA), Color(0xFFE9ECEF)],
+                colors: [
+                  Color(0xFFF8F9FA),
+                  Color(0xFFE9ECEF),
+                  // Color.fromARGB(255, 255, 255, 255),
+                  // Color.fromARGB(255, 218, 207, 207)
+                ],
               ),
             ),
           ),
@@ -29,17 +34,18 @@ class AnimatedBackground extends StatelessWidget {
               height: 20,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.blue.withOpacity(0.1),
+                color: Colors.deepPurple.withOpacity(0.1),
+                // color: Colors.blue.withOpacity(0.1),
               ),
             )
-            .animate(onPlay: (controller) => controller.repeat())
-            .moveY(
-              duration: Duration(seconds: 2 + index),
-              begin: 0,
-              end: 100,
-              curve: Curves.easeInOut,
-            )
-            .fadeIn(duration: const Duration(seconds: 1)),
+                .animate(onPlay: (controller) => controller.repeat())
+                .moveY(
+                  duration: Duration(seconds: 2 + index),
+                  begin: 0,
+                  end: 100,
+                  curve: Curves.easeInOut,
+                )
+                .fadeIn(duration: const Duration(seconds: 1)),
           ),
         ),
       ],
