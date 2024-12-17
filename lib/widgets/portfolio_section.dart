@@ -5,45 +5,34 @@ import 'package:portfolio_website_2/screens/UI/portfolio_items.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PortfolioSection extends StatelessWidget {
-  PortfolioSection({super.key});
-
-  Future<void> _launchUrl(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
-    }
-  }
-
-  bool runOnce = false;
+  const PortfolioSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     final List<Widget> portfolioItems = [];
-    if (!runOnce) {
-      for (int i = 0; i < 5; i++) {
-        portfolioItems.add(
-          _buildPortfolioItem2(
-            context,
-            'Project Title',
-            'It’s a simple game which I made for the ethiopian game market which was lacking in quantity and quality at the time. I relesed it to the play store when I was in University and was getting moderate success and growing until my PlayStore was shut down because of a fiverr scam. I made everything from scratch including the art using inkscape to the code using C# in unity. ',
-            'https://images.pexels.com/photos/6867603/pexels-photo-6867603.jpeg?auto=compress&cs=tinysrgb&w=600',
-            [
-              {
-                'icon': FontAwesomeIcons.github,
-                'url': 'https://github.com/user/project'
-              },
-              {
-                'icon': FontAwesomeIcons.linkedin,
-                'url': 'https://linkedin.com/in/project'
-              },
-              {
-                'icon': FontAwesomeIcons.youtube,
-                'url': 'https://youtube.com/watch?v=project'
-              },
-            ],
-          ),
-        );
-      }
-      runOnce = true;
+    for (int i = 0; i < 5; i++) {
+      portfolioItems.add(
+        _buildPortfolioItem2(
+          context,
+          'Project Title',
+          'It’s a simple game which I made for the ethiopian game market which was lacking in quantity and quality at the time. I relesed it to the play store when I was in University and was getting moderate success and growing until my PlayStore was shut down because of a fiverr scam. I made everything from scratch including the art using inkscape to the code using C# in unity. ',
+          'https://images.pexels.com/photos/6867603/pexels-photo-6867603.jpeg?auto=compress&cs=tinysrgb&w=600',
+          [
+            {
+              'icon': FontAwesomeIcons.github,
+              'url': 'https://github.com/user/project'
+            },
+            {
+              'icon': FontAwesomeIcons.linkedin,
+              'url': 'https://linkedin.com/in/project'
+            },
+            {
+              'icon': FontAwesomeIcons.youtube,
+              'url': 'https://youtube.com/watch?v=project'
+            },
+          ],
+        ),
+      );
     }
 
     return Container(
@@ -55,34 +44,6 @@ class PortfolioSection extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 32),
-          // Wrap(
-          //   spacing: 16,
-          //   runSpacing: 16,
-          //   children: [
-          //     _buildPortfolioItem(
-          //       context,
-          //       'Project 1',
-          //       'A Flutter mobile app for task management',
-          //       'https://youtube.com/watch?v=your-video-1',
-          //       FontAwesomeIcons.youtube,
-          //     ),
-          //     _buildPortfolioItem(
-          //       context,
-          //       'Project 2',
-          //       'React-based e-commerce platform',
-          //       'https://github.com/yourusername/project2',
-          //       FontAwesomeIcons.github,
-          //     ),
-          //     _buildPortfolioItem(
-          //       context,
-          //       'Project 3',
-          //       'Node.js backend API',
-          //       'https://stackoverflow.com/questions/tagged/your-tag',
-          //       FontAwesomeIcons.stackOverflow,
-          //     ),
-
-          //   ],
-          // ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: SizedBox(
@@ -102,7 +63,7 @@ class PortfolioSection extends StatelessWidget {
                   );
                 },
                 itemCount: portfolioItems.length,
-                shrinkWrap: true,
+                // shrinkWrap: true,
               ),
             ),
           ),

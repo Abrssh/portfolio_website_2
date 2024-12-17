@@ -29,4 +29,11 @@ class AppTheme {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+
+  static const cardTheme = CardTheme(
+    elevation: 4.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+    ),
+  );
 }

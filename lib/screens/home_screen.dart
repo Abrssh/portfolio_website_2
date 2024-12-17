@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website_2/widgets/football_api_section.dart';
 import '../widgets/about_section.dart';
 import '../widgets/experience_section.dart';
 import '../widgets/portfolio_section.dart';
@@ -22,6 +23,7 @@ class HomeScreen extends StatelessWidget {
                   const AboutSection(),
                   const ExperienceSection(),
                   PortfolioSection(),
+                  const FootballApiSection(),
                   const ContactSection(),
                 ],
               ),

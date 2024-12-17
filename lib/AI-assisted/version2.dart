@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> fetchFootballMatches() async {
     try {
       final String? apiKey = dotenv.env['football_api_key'];
+      debugPrint("Api Key: $apiKey");
       final response = await http.get(
         Uri.parse('https://api.football-data.org/v4/matches'),
         headers: {'X-Auth-Token': apiKey!},
@@ -50,10 +51,12 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           matches = json.decode(response.body)['matches'];
         });
+        debugPrint("Matches: $matches Response Body: ${response.body}");
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Failed to load matches'),
+          SnackBar(
+            content: Text(
+                'Failed to load matches: response code ${response.statusCode}'),
             backgroundColor: Colors.red,
           ),
         );
