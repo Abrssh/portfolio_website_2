@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:portfolio_website_2/theme/app_theme.dart';
+import 'package:portfolio_website_2/MVVM/View/theme/app_theme.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ExperienceSection extends StatefulWidget {
