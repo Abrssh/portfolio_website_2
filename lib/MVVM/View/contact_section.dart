@@ -29,7 +29,7 @@ class ContactSection extends StatelessWidget {
             children: [
               _buildContactButton(
                 'Upwork',
-                'https://www.upwork.com/freelancers/your-profile',
+                'https://www.upwork.com/freelancers/~013f6fcbd4876855ac',
                 FontAwesomeIcons.upwork,
                 const Color(0xFF6FDA44),
               ),
@@ -41,7 +41,7 @@ class ContactSection extends StatelessWidget {
               ),
               _buildContactButton(
                 'Email',
-                'mailto:your.email@example.com',
+                'mailto:abrsshwork@gmail.com',
                 Icons.email,
                 Colors.red,
               ),
@@ -53,7 +53,8 @@ class ContactSection extends StatelessWidget {
     );
   }
 
-  Widget _buildContactButton(String title, String url, IconData icon, Color color) {
+  Widget _buildContactButton(
+      String title, String url, IconData icon, Color color) {
     return ElevatedButton.icon(
       onPressed: () => _launchUrl(url),
       icon: Icon(icon, color: color),

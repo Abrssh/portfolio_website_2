@@ -38,7 +38,7 @@ class RapidApiDataSource {
         return data['response']['players'];
       } else if (response.statusCode == 401) {
         throw Exception("Unauthorized access. API needs to be Updated.");
-      } else if (response.statusCode == 403) {
+      } else if (response.statusCode == 403 || response.statusCode == 429) {
         throw Exception("API limit exceeded. Please try again later.");
       } else if (response.statusCode == 404) {
         throw Exception("Data not found. API endpoint may have changed.");
@@ -49,8 +49,7 @@ class RapidApiDataSource {
             "Failed to fetch players. Error code: ${response.statusCode}");
       }
     } catch (e) {
-      throw Exception(
-          "An error occurred. Please try again later. Exception: $e");
+      throw Exception("An Unknown error occurred. $e");
     }
   }
 }

@@ -2,7 +2,7 @@ import 'package:portfolio_website_2/MVVM/Model/Class/top_player.dart';
 import 'package:portfolio_website_2/MVVM/Model/Data/rapid_api_datasource.dart';
 import 'package:portfolio_website_2/MVVM/ViewModel/Interface/get_top_player_data.dart';
 
-class GetTopPlayerImplementation implements GetTopPlayers {
+class GetTopPlayerImplementation implements GetTopPlayersUseCase {
   final RapidApiDataSource rapidApiDataSource;
 
   GetTopPlayerImplementation({required this.rapidApiDataSource});

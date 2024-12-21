@@ -23,7 +23,7 @@ class PortfolioApp extends StatelessWidget {
           create: (context) {
             return FootballApiSecViewModel(
                 // manual dependency injection
-                getTopPlayers: GetTopPlayerImplementation(
+                getTopPlayersUseCase: GetTopPlayerImplementation(
                     rapidApiDataSource: RapidApiDataSource()));
           },
         ),
