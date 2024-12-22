@@ -35,7 +35,7 @@ class ContactSection extends StatelessWidget {
               ),
               _buildContactButton(
                 'Fiverr',
-                'https://www.fiverr.com/your-profile',
+                'https://www.fiverr.com/abrhamdaniel414?public_mode=true',
                 FontAwesomeIcons.fire,
                 const Color(0xFF1DBF73),
               ),

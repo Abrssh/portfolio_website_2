@@ -14,8 +14,8 @@ class AppTheme {
 
   static const primaryGradient = LinearGradient(
     colors: [
-      Color.fromARGB(255, 190, 72, 254),
-      Color.fromARGB(255, 255, 95, 242)
+      Color.fromARGB(250, 190, 72, 254),
+      Color.fromARGB(250, 255, 95, 242)
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

@@ -11,82 +11,22 @@ class ExperienceSection extends StatefulWidget {
   State<ExperienceSection> createState() => _ExperienceSectionState();
 }
 
-class _ExperienceSectionState extends State<ExperienceSection>
-    with TickerProviderStateMixin {
-  // bool playAnimation = false;
-  // late AnimationController fadeInAnimation;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   fadeInAnimation = AnimationController(
-  //       vsync: this, duration: const Duration(milliseconds: 1500));
-  //   fadeInAnimation.addListener(() {
-  //     setState(() {
-  //       debugPrint(
-  //           "Animation Value init state ${fadeInAnimation.isAnimating}  ${fadeInAnimation.isCompleted}");
-  //     });
-  //   });
-  // }
-
+class _ExperienceSectionState extends State<ExperienceSection> {
   @override
   Widget build(BuildContext context) {
-    final List<Widget> experiences = [];
+    // final List<Widget> experiences = [];
+    final List<Widget> experiences = _addExperiences(context);
 
-    for (var i = 0; i < 5; i++) {
-      // experiences.add(
-      //   VisibilityDetector(
-      //       key: ValueKey(i),
-      //       onVisibilityChanged: (info) {},
-      //       child: Container(
-      //         width: 200,
-      //         height: 250,
-      //         // padding: const EdgeInsets.all(16),
-      //         // margin: const EdgeInsets.all(16),
-      //         decoration: BoxDecoration(
-      //           gradient: AppTheme.primaryGradient,
-      //           borderRadius: BorderRadius.circular(16),
-      //         ),
-      //         child: Column(
-      //           crossAxisAlignment: CrossAxisAlignment.start,
-      //           children: [
-      //             Text(
-      //               'Experience $i',
-      //               style: Theme.of(context).textTheme.headlineSmall,
-      //             ),
-      //             const SizedBox(height: 8),
-      //             Text(
-      //               'Duration: 2 years',
-      //               style: Theme.of(context).textTheme.bodySmall,
-      //             ),
-      //           ],
-      //         ),
-      //       )
-      //           // .animate(onPlay: (controller) => controller.repeat(reverse: true))
-      //           .animate()
-      //           .fadeIn(
-      //             begin: 0.5,
-      //             curve: Curves.easeInCubic,
-      //             duration: const Duration(milliseconds: 2000),
-      //             delay: Duration(milliseconds: 500 + (i * 200)),
-      //           )
-      //       // .scaleXY(
-      //       //     begin: 0.8,
-      //       //     end: 1,
-      //       //     curve: Curves.easeInCubic,
-      //       //     duration: const Duration(milliseconds: 2000),
-      //       //     delay: Duration(milliseconds: 500 + (i * 200))),
-      //       ),
-      // );
-      experiences.add(_buildExperience(
-          context,
-          i == 0,
-          i,
-          "Senior Developer",
-          "Tech Company Inc.",
-          "2020 - Present",
-          "Led development of multiple successful projects using Flutter and React. Mentored junior developers and implemented best practices that improved team productivity by 40%."));
-    }
+    // for (var i = 0; i < 5; i++) {
+    //   experiences.add(_buildExperience(
+    //       context,
+    //       i == 0,
+    //       i,
+    //       "Senior Developer",
+    //       "Tech Company Inc.",
+    //       "2020 - Present",
+    //       "Led development of multiple successful projects using Flutter and React. Mentored junior developers and implemented best practices that improved team productivity by 40%."));
+    // }
     return Container(
       padding: const EdgeInsets.all(32),
       width: MediaQuery.of(context).size.width,
@@ -97,90 +37,6 @@ class _ExperienceSectionState extends State<ExperienceSection>
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 32),
-          // VisibilityDetector(
-          //   key: const Key('featured-experience'),
-          //   onVisibilityChanged: (info) {
-          //     if (info.visibleFraction > 0.5) {
-          //       // setState(() {
-          //       //   playAnimation = true;
-          //       // });
-          //       debugPrint("Widget visible");
-          //       // fadeInAnimation.forward(from: 0);
-          //     } else {
-          //       // setState(() {
-          //       //   playAnimation = false;
-          //       // });
-          //       // fadeInAnimation.stop();
-          //       debugPrint("widget invisible");
-          //     }
-          //   },
-          //   child: Animate(
-          //     // controller: fadeInAnimation,
-          //     // onPlay: (controller) => playAnimation,
-          //     child: Container(
-          //       constraints: const BoxConstraints(maxWidth: 800),
-          //       padding: const EdgeInsets.all(24),
-          //       decoration: BoxDecoration(
-          //         // gradient: const LinearGradient(
-          //         //   colors: [Color(0xFF6448FE), Color(0xFF5FC6FF)],
-          //         //   begin: Alignment.topLeft,
-          //         //   end: Alignment.bottomRight,
-          //         // ),
-          //         gradient: AppTheme.primaryGradient,
-          //         borderRadius: BorderRadius.circular(16),
-          //         boxShadow: [
-          //           BoxShadow(
-          //             color: Colors.blue.withOpacity(0.3),
-          //             blurRadius: 10,
-          //             offset: const Offset(0, 4),
-          //           ),
-          //         ],
-          //       ),
-          //       child: Column(
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           Text(
-          //             'Senior Developer',
-          //             style:
-          //                 Theme.of(context).textTheme.headlineSmall?.copyWith(
-          //                       color: Colors.white,
-          //                     ),
-          //           ),
-          //           const SizedBox(height: 8),
-          //           Text(
-          //             'Tech Company Inc.',
-          //             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-          //                   color: Colors.white.withOpacity(0.9),
-          //                 ),
-          //           ),
-          //           const SizedBox(height: 16),
-          //           Text(
-          //             '2020 - Present',
-          //             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          //                   color: Colors.white.withOpacity(0.8),
-          //                 ),
-          //           ),
-          //           const SizedBox(height: 16),
-          //           Text(
-          //             'Led development of multiple successful projects using Flutter and React. '
-          //             'Mentored junior developers and implemented best practices that improved team productivity by 40%.',
-          //             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          //                   color: Colors.white.withOpacity(0.9),
-          //                 ),
-          //           ),
-          //         ],
-          //       ),
-          //     )
-          //         .animate(
-          //           onPlay: (controller) => controller.repeat(),
-          //         )
-          //         .shimmer(
-          //           duration: const Duration(seconds: 2),
-          //           color: Colors.white.withOpacity(0.2),
-          //         ),
-          //   ),
-          // ),
-          // const SizedBox(height: 32),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: SizedBox(
@@ -194,7 +50,7 @@ class _ExperienceSectionState extends State<ExperienceSection>
                     duration: const Duration(milliseconds: 800),
                     child: SlideAnimation(
                       // verticalOffset: 50.0,
-                      horizontalOffset: 50.0,
+                      horizontalOffset: 30.0,
                       child: ScaleAnimation(child: experiences[index]),
                     ),
                   );
@@ -276,10 +132,11 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
             ),
           )
               .animate(
-                onPlay: (controller) => controller.repeat(),
-              )
+                  // delay: const Duration(milliseconds: 1000),
+                  // onPlay: (controller) => controller.repeat(),
+                  )
               .shimmer(
-                duration: const Duration(milliseconds: 1500),
+                duration: const Duration(milliseconds: 2000),
                 color: Colors.white.withOpacity(0.2),
               ),
         )
@@ -342,4 +199,64 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
             ),
           ),
         );
+}
+
+List<Widget> _addExperiences(BuildContext context) {
+  List<Widget> experiences = [];
+  Widget experience1 = _buildExperience(
+      context,
+      true,
+      1,
+      "Developer and System Analyst",
+      "Masstaxi/DAST",
+      "AUG 2020 - SEP 2022",
+      "I was tasked with identifying key requirements, system design and developing the mobile front end using flutter and back end using firebase. I implemented native features for the app using kotlin and developed multiple backend services using firebase cloud function. During testing and iteration phase I decreased route failure by 60% and increased usability among taxi drivers by 45%.");
+  Widget experience2 = _buildExperience(
+      context,
+      false,
+      2,
+      "Freelancer",
+      "Fiverr",
+      "SEP 2022 - JAN 2023",
+      "I have worked on different projects using firebase cloud function notably on a web scraping project that was analyzing and monitoring different Crypto and NFT projects. Increased monitored sites 3x and increased scraped data by 40%.");
+  Widget experience3 = _buildExperience(
+      context,
+      false,
+      2,
+      "Freelancer",
+      "Upwork",
+      "JAN 2023 - MAY 2023",
+      "I have worked on a flutter and firebase development job for an app that help kids and parents manage tasks for a company that was based in Israel on upwork. I added authentication, media handling functionalities, improved UI, real time updates using firebase and other features requested by the Client.");
+  Widget experience4 = _buildExperience(
+      context,
+      false,
+      2,
+      "Freelancer",
+      "Fiverr",
+      "MAY 2023 - JAN 2024",
+      "Worked on some smaller tasks when it comes to Firebase cloud functions and mobile native kotlin development for flutter apps that need native features.");
+  Widget experience5 = _buildExperience(
+      context,
+      false,
+      2,
+      "Freelancer",
+      "Upwork",
+      "FEB 2024 - MAY 2024",
+      "Worked on flutter and firebase involving a carpooling project which also included some openAI features. And worked on and delivered a carpool game they needed as well, using flame package in flutter.");
+  Widget experience6 = _buildExperience(
+      context,
+      false,
+      2,
+      "AI trainer and Developer",
+      "Ubuntu Agency",
+      "MAY 2024 - SEP 2024",
+      "Worked on an agency based in the US that was involved in training LLM’s for coding mainly in python and typescript. Was tasked with writing prompts, reviewing conversations, reviewing code and testing under the guidelines provided.");
+
+  experiences.add(experience1);
+  experiences.add(experience2);
+  experiences.add(experience3);
+  experiences.add(experience5);
+  experiences.add(experience6);
+  experiences.add(experience4);
+  return experiences;
 }

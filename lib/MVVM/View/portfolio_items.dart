@@ -34,7 +34,7 @@ class PortfolioItem extends StatelessWidget {
     double imageWidth =
         itemWidth * 0.9; // Adjust image width to 90% of item width
     double imageHeight =
-        itemHeight * 0.4; // Adjust image height to 30% of item height
+        itemHeight * 0.3; // Adjust image height to 30% of item height
 
     return Container(
       width: itemWidth,
@@ -148,7 +148,7 @@ class IconLink extends StatelessWidget {
       icon: icon,
       label: Text(
         'View ${url.split('/').last}',
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: Theme.of(context).textTheme.labelMedium,
       ), // Dynamic label based on URL
     );
   }

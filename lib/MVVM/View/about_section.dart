@@ -29,7 +29,7 @@ class AboutSection extends StatelessWidget {
               child: AnimatedTextKit(
                 animatedTexts: [
                   TypewriterAnimatedText(
-                    'Hello, I\'m [Your Name]',
+                    'Hello, I\'m Abrham Daniel',
                     speed: const Duration(milliseconds: 100),
                   ),
                 ],
@@ -38,15 +38,16 @@ class AboutSection extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Full Stack Developer',
+              'Full Stack Mobile Developer',
               style: Theme.of(context).textTheme.headlineSmall,
             ).animate().fadeIn(delay: const Duration(milliseconds: 500)),
             const SizedBox(height: 24),
             Container(
               constraints: const BoxConstraints(maxWidth: 600),
               child: Text(
-                'I\'m a passionate developer with expertise in Flutter, React, and Node.js. '
-                'I love creating beautiful and functional applications that solve real-world problems.',
+                // 'My expertise lies in Flutter and Firebase. '
+                // 'I\'m a fast learner and highly passionate about refining my skills and delivering top-quality work. My ability to work on both frontend and backend systems, coupled with my experience in diverse projects, makes me confident that I can be a valuable asset to any team.',
+                "I'm a passionate developer with expertise in Flutter and Firebase. I enjoy creating quality systems while maintaining a balance between UI and UX and have actually worked on projects that address real-world problems.",
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
