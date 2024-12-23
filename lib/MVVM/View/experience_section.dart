@@ -159,7 +159,7 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.blue.withOpacity(0.3),
+                  color: Colors.grey.withOpacity(0.3),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -171,28 +171,28 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
                 Text(
                   title,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: Colors.white,
+                      // color: Colors.white,
                       ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   company,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: Colors.white.withOpacity(0.9),
+                      // color: Colors.white.withOpacity(0.9),
                       ),
                 ),
                 const SizedBox(height: 16),
                 Text(
                   date,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.white.withOpacity(0.8),
+                      // color: Colors.white.withOpacity(0.8),
                       ),
                 ),
                 const SizedBox(height: 16),
                 Text(
                   description,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.white.withOpacity(0.9),
+                      // color: Colors.white.withOpacity(0.9),
                       ),
                 ),
               ],
@@ -208,7 +208,7 @@ List<Widget> _addExperiences(BuildContext context) {
       true,
       1,
       "Developer and System Analyst",
-      "Masstaxi/DAST",
+      "Masstaxi/DAST (Startup)",
       "AUG 2020 - SEP 2022",
       "I was tasked with identifying key requirements, system design and developing the mobile front end using flutter and back end using firebase. I implemented native features for the app using kotlin and developed multiple backend services using firebase cloud function. During testing and iteration phase I decreased route failure by 60% and increased usability among taxi drivers by 45%.");
   Widget experience2 = _buildExperience(

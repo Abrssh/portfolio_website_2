@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class RapidApiDataSource {
   Future<List<dynamic>> fetchPlayers(String metric) async {
-    final apiKey = dotenv.env['rapidapi_football_api_key'];
+    final apiKey = dotenv.env['rapidapi_football_api_key2'];
 
     String endpoint;
     switch (metric) {

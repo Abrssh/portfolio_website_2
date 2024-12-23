@@ -17,7 +17,14 @@ class AboutSection extends StatelessWidget {
             CircleAvatar(
               radius: 80,
               backgroundColor: Colors.deepPurple.withOpacity(0.2),
-              child: const Icon(Icons.person, size: 80, color: Colors.purple),
+              // child: const Icon(Icons.person, size: 80, color: Colors.purple),
+              child: Align(
+                alignment: Alignment.center,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("images/personal_pic.JPG"),
+                ),
+              ),
             ).animate().scale().fadeIn(),
             const SizedBox(height: 24),
             DefaultTextStyle(

@@ -14,11 +14,13 @@ class AppTheme {
 
   static const primaryGradient = LinearGradient(
     colors: [
-      Color.fromARGB(250, 190, 72, 254),
-      Color.fromARGB(250, 255, 95, 242)
+      // Color.fromARGB(250, 190, 72, 254),
+      // Color.fromARGB(250, 255, 95, 242),
+      Color.fromARGB(249, 254, 253, 255),
+      Color.fromARGB(248, 249, 247, 247)
     ],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
   );
 
   static const secondaryGradient = LinearGradient(

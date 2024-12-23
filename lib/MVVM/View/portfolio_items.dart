@@ -5,14 +5,14 @@ import 'package:url_launcher/url_launcher.dart';
 class PortfolioItem extends StatelessWidget {
   final String title;
   final String description;
-  final String imageUrl;
+  final String imagePath;
   final List<Map<String, dynamic>> links; // List of maps with 'icon' and 'url'
 
   const PortfolioItem({
     super.key,
     required this.title,
     required this.description,
-    required this.imageUrl,
+    this.imagePath = "",
     required this.links,
   });
 
@@ -33,8 +33,9 @@ class PortfolioItem extends StatelessWidget {
         screenSize.height * 0.8; // Adjust height to 70% of screen height
     double imageWidth =
         itemWidth * 0.9; // Adjust image width to 90% of item width
-    double imageHeight =
-        itemHeight * 0.3; // Adjust image height to 30% of item height
+    double imageHeight = title == "Simple Math Game"
+        ? itemHeight * 0.5
+        : itemHeight * 0.35; // Adjust image height to 30% of item height
 
     return Container(
       width: itemWidth,
@@ -84,16 +85,18 @@ class PortfolioItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  imageUrl,
-                  width: imageWidth,
-                  height: imageHeight,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,
-                ),
-              ),
+              imagePath != ""
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        imagePath,
+                        width: imageWidth,
+                        height: imageHeight,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.topCenter,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
               const SizedBox(height: 16),
               Text(
                 description,
@@ -147,7 +150,7 @@ class IconLink extends StatelessWidget {
       onPressed: onPressed,
       icon: icon,
       label: Text(
-        'View ${url.split('/').last}',
+        'View ${url.split('/')[2]}',
         style: Theme.of(context).textTheme.labelMedium,
       ), // Dynamic label based on URL
     );
