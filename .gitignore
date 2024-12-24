@@ -9,7 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
-.env
+assets/api_key.env
 
 
 # IntelliJ related
@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/assets/
 
 # Symbolication related
 app.*.symbols
