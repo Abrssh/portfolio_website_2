@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "ubuntusystem-940be"
+  },
+  "targets": {
+    "ubuntusystem-940be": {
+      "hosting": {
+        "abrhamportfoliosite12": [
+          "ubuntusystem-940be"
+        ],
+        "portfolio": [
+          "abrhamportfoliosite12"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
