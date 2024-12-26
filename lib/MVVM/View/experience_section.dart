@@ -87,6 +87,7 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
             height: height,
             padding: const EdgeInsets.all(24),
             margin: const EdgeInsets.all(20),
+            // color: Colors.purple[800],
             decoration: BoxDecoration(
               gradient: AppTheme.secondaryGradient,
               borderRadius: BorderRadius.circular(16),

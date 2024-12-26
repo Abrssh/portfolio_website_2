@@ -26,7 +26,7 @@ class AppTheme {
   static const secondaryGradient = LinearGradient(
     colors: [
       Color(0xFF6448FE),
-      Color(0xFF5FC6FF),
+      Color.fromARGB(255, 70, 172, 227),
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

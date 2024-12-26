@@ -88,7 +88,10 @@ class FootballApiSection extends StatelessWidget {
                       value: value,
                       child: Text(
                         value,
-                        style: const TextStyle(fontSize: 16.0),
+                        style: TextStyle(
+                            color: Colors.blue[800],
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w300),
                       ),
                     );
                   }).toList(),
