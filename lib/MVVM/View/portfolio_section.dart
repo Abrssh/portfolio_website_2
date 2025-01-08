@@ -189,8 +189,8 @@ class PortfolioSection extends StatelessWidget {
     ]);
     portfolioItems.add(portfolioItem1);
     portfolioItems.add(portfolioItem2);
+    portfolioItems.add(portfolioItem4); // changed to improve repetition
     portfolioItems.add(portfolioItem3);
-    portfolioItems.add(portfolioItem4);
     portfolioItems.add(portfolioItem5);
     portfolioItems.add(portfolioItem6);
     return portfolioItems;
