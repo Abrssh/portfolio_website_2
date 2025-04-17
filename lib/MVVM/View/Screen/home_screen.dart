@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website_2/MVVM/View/football_api_section.dart';
-import '../about_section.dart';
-import '../experience_section.dart';
-import '../portfolio_section.dart';
-import '../contact_section.dart';
-import '../animated_background.dart';
+import 'package:portfolio_website_2/MVVM/View/Widgets/football_api_section.dart';
+import '../Widgets/about_section.dart';
+import '../Widgets/experience_section.dart';
+import '../Widgets/portfolio_section.dart';
+import '../Widgets/contact_section.dart';
+import '../Widgets/animated_background.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
