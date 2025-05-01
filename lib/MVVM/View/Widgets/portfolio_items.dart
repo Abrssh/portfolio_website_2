@@ -67,8 +67,8 @@ class PortfolioItem extends StatelessWidget {
           } else {
             // Mobile
             titleFontSize = constraints.maxWidth * 0.1;
-            descriptionFontSize = titleFontSize * 0.5;
-            iconSize = constraints.maxWidth * 0.08;
+            descriptionFontSize = titleFontSize * 0.3;
+            iconSize = constraints.maxWidth * 0.05;
           }
 
           return Column(

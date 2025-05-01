@@ -12,36 +12,66 @@ class PortfolioSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> portfolioItems = _addPortfolioItems(context);
 
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final isDesktop = MediaQuery.of(context).size.width > 1064;
+
     return Container(
       padding: const EdgeInsets.all(32),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             'Portfolio',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 32),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.92,
+          if (isMobile)
+            // Mobile layout - vertical scrolling
+            SizedBox(
+              height: MediaQuery.of(context).size.height *
+                  0.7, // Provide a fixed height
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
                     duration: const Duration(milliseconds: 650),
                     child: SlideAnimation(
-                      horizontalOffset: 50.0,
-                      child: FadeInAnimation(child: portfolioItems[index]),
+                      verticalOffset: 50.0,
+                      child: FadeInAnimation(
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 24.0),
+                          child: portfolioItems[index],
+                        ),
+                      ),
                     ),
                   );
                 },
                 itemCount: portfolioItems.length,
               ),
+            )
+          else
+            // Desktop/tablet layout - horizontal scrolling
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.92,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 650),
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        child: FadeInAnimation(child: portfolioItems[index]),
+                      ),
+                    );
+                  },
+                  itemCount: portfolioItems.length,
+                ),
+              ),
             ),
-          ),
         ],
       ),
     );
