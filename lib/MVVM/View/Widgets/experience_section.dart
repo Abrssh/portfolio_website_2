@@ -69,8 +69,12 @@ class _ExperienceSectionState extends State<ExperienceSection> {
 Widget _buildExperience(BuildContext context, bool main, int num, String title,
     String company, String date, String description) {
   final isMobile = MediaQuery.of(context).size.width < 600;
+  final isDesktop = MediaQuery.of(context).size.width > 1064;
   final width = MediaQuery.of(context).size.width * (isMobile ? 0.7 : 0.5);
   final height = MediaQuery.of(context).size.height * (isMobile ? 0.4 : 0.5);
+
+  debugPrint(
+      'width: $width, height: $height isMobile: $isMobile isDesktop: $isDesktop media width: ${MediaQuery.of(context).size.width}');
 
   return main
       ? VisibilityDetector(
@@ -126,8 +130,12 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
                 Text(
                   description,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.white.withOpacity(0.9),
-                      ),
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: isMobile
+                          ? width * 0.025
+                          : isDesktop
+                              ? width * 0.02
+                              : width * 0.025),
                 ),
               ],
             ),
@@ -194,7 +202,11 @@ Widget _buildExperience(BuildContext context, bool main, int num, String title,
                   description,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       // color: Colors.white.withOpacity(0.9),
-                      ),
+                      fontSize: isMobile
+                          ? width * 0.029
+                          : isDesktop
+                              ? width * 0.022
+                              : width * 0.03),
                 ),
               ],
             ),

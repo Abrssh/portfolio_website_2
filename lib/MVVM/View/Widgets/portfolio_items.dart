@@ -33,9 +33,8 @@ class PortfolioItem extends StatelessWidget {
         screenSize.height * 0.8; // Adjust height to 70% of screen height
     double imageWidth =
         itemWidth * 0.9; // Adjust image width to 90% of item width
-    double imageHeight = title == "Simple Math Game"
-        ? itemHeight * 0.5
-        : itemHeight * 0.35; // Adjust image height to 30% of item height
+    double imageHeight =
+        itemHeight * 0.35; // Adjust image height to 30% of item height
 
     return Container(
       width: itemWidth,
@@ -68,8 +67,8 @@ class PortfolioItem extends StatelessWidget {
           } else {
             // Mobile
             titleFontSize = constraints.maxWidth * 0.1;
-            descriptionFontSize = titleFontSize * 0.5;
-            iconSize = constraints.maxWidth * 0.08;
+            descriptionFontSize = titleFontSize * 0.3;
+            iconSize = constraints.maxWidth * 0.05;
           }
 
           return Column(

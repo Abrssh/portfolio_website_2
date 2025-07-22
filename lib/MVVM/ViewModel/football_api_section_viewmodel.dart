@@ -55,6 +55,7 @@ class FootballApiSecViewModel extends ChangeNotifier {
       List<TopPlayer> tempTopPlayers =
           await getTopPlayersUseCase.fetchTopPlayers(metric);
 
+      // Use this to not exhaust your API limit
       // List<TopPlayer> tempTopPlayers = [];
       // await Future.delayed(const Duration(seconds: 2));
       // if ("goals" == metric) {

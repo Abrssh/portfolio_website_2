@@ -173,7 +173,7 @@ class FootballApiSection extends StatelessWidget {
                           child: ListTile(
                             leading: CircleAvatar(
                               backgroundColor:
-                                  parseColor(topPlayer.teamDarkColor),
+                                  parseColor(topPlayer.teamLightColor),
                               radius: 50.0,
                               child: Text(
                                 context

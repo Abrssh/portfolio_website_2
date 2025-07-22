@@ -1,73 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_website_2/MVVM/View/portfolio_items.dart';
+import 'package:portfolio_website_2/MVVM/View/Widgets/portfolio_items.dart';
 
 class PortfolioSection extends StatelessWidget {
-  const PortfolioSection({super.key});
+  final bool isTest;
+
+  const PortfolioSection({super.key, this.isTest = false});
 
   @override
   Widget build(BuildContext context) {
     final List<Widget> portfolioItems = _addPortfolioItems(context);
 
-    // final List<Widget> portfolioItems = [];
-    // for (int i = 0; i < 5; i++) {
-    //   portfolioItems.add(
-    //     _buildPortfolioItem2(
-    //       context,
-    //       'Project Title',
-    //       'It’s a simple game which I made for the ethiopian game market which was lacking in quantity and quality at the time. I relesed it to the play store when I was in University and was getting moderate success and growing until my PlayStore was shut down because of a fiverr scam. I made everything from scratch including the art using inkscape to the code using C# in unity. ',
-    //       'https://images.pexels.com/photos/6867603/pexels-photo-6867603.jpeg?auto=compress&cs=tinysrgb&w=600',
-    //       [
-    //         {
-    //           'icon': FontAwesomeIcons.github,
-    //           'url': 'https://github.com/user/project'
-    //         },
-    //         {
-    //           'icon': FontAwesomeIcons.linkedin,
-    //           'url': 'https://linkedin.com/in/project'
-    //         },
-    //         {
-    //           'icon': FontAwesomeIcons.youtube,
-    //           'url': 'https://youtube.com/watch?v=project'
-    //         },
-    //       ],
-    //     ),
-    //   );
-    // }
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final isDesktop = MediaQuery.of(context).size.width > 1064;
 
     return Container(
       padding: const EdgeInsets.all(32),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             'Portfolio',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 32),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.92,
+          if (isMobile)
+            // Mobile layout - vertical scrolling
+            SizedBox(
+              height: MediaQuery.of(context).size.height *
+                  0.7, // Provide a fixed height
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
                     duration: const Duration(milliseconds: 650),
                     child: SlideAnimation(
-                      // verticalOffset: 50.0,
-                      horizontalOffset: 50.0,
-                      child: FadeInAnimation(child: portfolioItems[index]),
+                      verticalOffset: 50.0,
+                      child: FadeInAnimation(
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 24.0),
+                          child: portfolioItems[index],
+                        ),
+                      ),
                     ),
                   );
                 },
                 itemCount: portfolioItems.length,
-                // shrinkWrap: true,
+              ),
+            )
+          else
+            // Desktop/tablet layout - horizontal scrolling
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.92,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 650),
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        child: FadeInAnimation(child: portfolioItems[index]),
+                      ),
+                    );
+                  },
+                  itemCount: portfolioItems.length,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
@@ -78,12 +82,29 @@ class PortfolioSection extends StatelessWidget {
     return PortfolioItem(
       title: title,
       description: description,
-      imagePath: imagePath,
+      imagePath: isTest ? '' : imagePath,
       links: links,
     );
   }
 
   List<Widget> _addPortfolioItems(BuildContext context) {
+    if (isTest) {
+      return [
+        _buildPortfolioItem2(
+          context,
+          'Test Project',
+          'Test Description',
+          '',
+          [
+            {
+              'icon': FontAwesomeIcons.github,
+              'url': 'https://github.com/user/project'
+            }
+          ],
+        )
+      ];
+    }
+
     List<Widget> portfolioItems = [];
     Widget portfolioItem1 = _buildPortfolioItem2(
         context,
@@ -114,15 +135,11 @@ class PortfolioSection extends StatelessWidget {
         'icon': FontAwesomeIcons.github,
         'url': 'https://github.com/Abrssh/NonStop-Ethiopia'
       },
-      // {
-      //   'icon': FontAwesomeIcons.googleDrive,
-      //   'url': 'https://linkedin.com/in/project'
-      // },
     ]);
     Widget portfolioItem3 = _buildPortfolioItem2(
         context,
         "Karta Game",
-        "It’s a simple game which I made for the ethiopian game market which was lacking in quantity and quality at the time. I relesed it to the play store when I was in University and was getting moderate success and growing until my PlayStore was shut down because of a fiverr scam. I made everything from scratch including the art using inkscape to the code using C# in unity.",
+        "It's a simple game which I made for the ethiopian game market which was lacking in quantity and quality at the time. I relesed it to the play store when I was in University and was getting moderate success and growing until my PlayStore was shut down because of a fiverr scam. I made everything from scratch including the art using inkscape to the code using C# in unity.",
         "images/karta.png", [
       {
         'icon': FontAwesomeIcons.github,
@@ -141,7 +158,7 @@ class PortfolioSection extends StatelessWidget {
     Widget portfolioItem4 = _buildPortfolioItem2(
         context,
         "Ubuntu Management System",
-        "It’s a management app that contains app and website both developed in flutter for the AI training agency I was working for which handled the employee and employer relationship which was being done manually. The main part of the project was handling and monitoring employee relationship and generating report for management.",
+        "It's a management app that contains app and website both developed in flutter for the AI training agency I was working for which handled the employee and employer relationship which was being done manually. The main part of the project was handling and monitoring employee relationship and generating report for management.",
         "", [
       {
         'icon': FontAwesomeIcons.github,
@@ -151,10 +168,6 @@ class PortfolioSection extends StatelessWidget {
         'icon': FontAwesomeIcons.google,
         'url': 'https://ubuntusystem-940be.firebaseapp.com'
       },
-      // {
-      //   'icon': FontAwesomeIcons.googleDrive,
-      //   'url': 'https://linkedin.com/in/project'
-      // },
     ]);
 
     Widget portfolioItem5 = _buildPortfolioItem2(
@@ -189,7 +202,7 @@ class PortfolioSection extends StatelessWidget {
     ]);
     portfolioItems.add(portfolioItem1);
     portfolioItems.add(portfolioItem2);
-    portfolioItems.add(portfolioItem4); // changed to improve repetition
+    portfolioItems.add(portfolioItem4);
     portfolioItems.add(portfolioItem3);
     portfolioItems.add(portfolioItem5);
     portfolioItems.add(portfolioItem6);
