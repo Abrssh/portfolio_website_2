@@ -13,7 +13,7 @@ class PortfolioSection extends StatelessWidget {
     final List<Widget> portfolioItems = _addPortfolioItems(context);
 
     final isMobile = MediaQuery.of(context).size.width < 600;
-    final isDesktop = MediaQuery.of(context).size.width > 1064;
+    // final isDesktop = MediaQuery.of(context).size.width > 1064;
 
     return Container(
       padding: const EdgeInsets.all(32),
@@ -130,7 +130,7 @@ class PortfolioSection extends StatelessWidget {
         context,
         "Non Stop Ethiopia",
         "This is a simple app idea I had when I was working with mini buses for our start up Masstaxi in which I observed taxi drivers had audio files with longer remix of different songs they called nonstop music which they shared manually amongst each other and I wanted to create a centralized music streaming app for them in which they could choose the nonstop music they wanted which is updated daily for newer choices which makes the process much simpler and give them new functionality.",
-        "", [
+        "images/nonstop.png", [
       {
         'icon': FontAwesomeIcons.github,
         'url': 'https://github.com/Abrssh/NonStop-Ethiopia'
@@ -157,9 +157,9 @@ class PortfolioSection extends StatelessWidget {
     ]);
     Widget portfolioItem4 = _buildPortfolioItem2(
         context,
-        "Ubuntu Management System",
+        "Ubuntu Mgmt System",
         "It's a management app that contains app and website both developed in flutter for the AI training agency I was working for which handled the employee and employer relationship which was being done manually. The main part of the project was handling and monitoring employee relationship and generating report for management.",
-        "", [
+        "images/ubuntu.png", [
       {
         'icon': FontAwesomeIcons.github,
         'url': 'https://github.com/Abrssh/ubuntu_system'
